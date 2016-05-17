@@ -5,18 +5,29 @@ package main
 
 import "fmt"
 
+
+type Workshop struct {
+  Name      string
+  Atendees  int
+  Location  string
+}
+
 func main() {
 
-  slice := []int{1, 2, 3, 6, 12, 31, 45}
+  workshop := Workshop{"Workshop 101", 12, "Brno"}
+  workshop2 := Workshop{Name: "Golang 101"}
 
-  fmt.Println(slice)
+  fmt.Printf("Workshop: %v\n", workshop)
+  fmt.Printf("Workshop2: %v\n", workshop2)
 
-  for index, value := range slice {
-    fmt.Println("slice[%d] = %d", index, value)
-  };
+  // fmt.Println(slice)
 
-  length, _ := printSlice(slice) // ignore the second value
-  fmt.Printf("Length is: %d", length)
+  // for index, value := range slice {
+  //   fmt.Println("slice[%d] = %d", index, value)
+  // };
+
+  // length, _ := printSlice(slice) // ignore the second value
+  // fmt.Printf("Length is: %d", length)
 }
 
 func printSlice(slice []int) (int, string) { //declare two return values here
