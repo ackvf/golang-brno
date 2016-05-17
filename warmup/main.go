@@ -1,7 +1,7 @@
 // go run main.go
 // go build main.go -> golang-brno.exe
 
-package main
+package warmup
 
 import "fmt"
 
