@@ -9,12 +9,18 @@ import "fmt"
 type Workshop struct {
   Name      string
   Atendees  int
-  Location  string
+  Location  Location
+}
+
+type Location struct {
+  Name  string
+  Lat   float32
+  Lon   float32
 }
 
 func main() {
 
-  workshop := Workshop{"Workshop 101", 12, "Brno"}
+  workshop := Workshop{"Workshop 101", 12, Location{"Brno", 31.1, 31.5}}
   workshop2 := Workshop{Name: "Golang 101"}
 
   fmt.Printf("Workshop: %v\n", workshop)
