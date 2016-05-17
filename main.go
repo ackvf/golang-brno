@@ -4,9 +4,12 @@ import "net/http"
 
 func main() {
 
-  http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("Hello server"))
-  })
+  http.HandleFunc("/", rootHandler)
   http.ListenAndServe(":8080", nil)
 
+}
+
+
+func rootHandler(w http.ResponseWriter, r *http.Request) {
+  w.Write([]byte("Hello server2"))
 }
