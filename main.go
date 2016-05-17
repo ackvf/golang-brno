@@ -15,11 +15,14 @@ func main() {
     fmt.Println("slice[%d] = %d", index, value)
   };
 
-  printSlice(slice)
+  length, _ := printSlice(slice) // ignore the second value
+  fmt.Printf("Length is: %d", length)
 }
 
-func printSlice(slice []int) {
+func printSlice(slice []int) (int, string) { //declare two return values here
   for _, value := range slice {
-    fmt.Printf("%dn", value)
+    fmt.Printf("%d\n", value)
   }
+
+  return len(slice), "This is slice"
 }
