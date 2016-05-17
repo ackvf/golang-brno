@@ -18,7 +18,14 @@ type Location struct {
   Lon   float32
 }
 
+func (this *Location) GetName() string {
+  return "---" + this.Name + "---"
+}
+
 func main() {
+
+  loc := Location{"Brno", 40.13, 51.13}
+  fmt.Println(loc.GetName())
 
   workshop := Workshop{"Workshop 101", 12, Location{"Brno", 31.1, 31.5}}
   workshop2 := Workshop{Name: "Golang 101"}
