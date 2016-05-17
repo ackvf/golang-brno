@@ -28,16 +28,25 @@ func todoHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
-		todo := GetTodo() // GetTodo is found automatically from todo.go as it is in same package
+		todo := GetAll() // GetTodo is found automatically from todo.go as it is in same package
+
 		result, err := json.Marshal(todo)
 		if err != nil {
 			panic(err)
 		}
-
+		w.WriteHeader(http.StatusOK)
 		w.Write(result)
 
 	case "POST":
+		todo := Todo{}
+		decoder := json.NewDecoder(r.Body)
+		err := decoder.Decode(&todo)
+		if err != nil {
+			panic(err)
+		}
+		SaveTodo(todo)
 		w.Write([]byte("POST"))
+
 	case "PUT":
 		w.Write([]byte("PUT"))
 	case "DELETE":
