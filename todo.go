@@ -9,7 +9,7 @@ type Todo struct {
 }
 
 func GetAll() []Todo {
-	db := db.GetDb()
+	db := db.GetDB()
 	rows, err := db.Query("SELECT * FROM")
 	if err != nil {
 		panic(err)

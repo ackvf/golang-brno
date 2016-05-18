@@ -10,10 +10,10 @@ import (
 
 var db *sql.DB
 
-func getDB() *sql.DB {
+func GetDB() *sql.DB {
 	if db == nil {
 		var err error
-		db, err := sql.Open("postgres" /*dataSourceName*/, "host=ec2-23-23-211-21.compute-1.amazonaws.com database=ddrkheg4gaufom user=yxdgjzsqajkoia password=pJoowuHjfQ_02pzTtbBieQq801")
+		db, err = sql.Open("postgres" /*dataSourceName*/, "host=ec2-23-23-211-21.compute-1.amazonaws.com database=ddrkheg4gaufom user=yxdgjzsqajkoia password=pJoowuHjfQ_02pzTtbBieQq801")
 		if err != nil {
 			panic(err)
 		}
