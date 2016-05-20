@@ -3,14 +3,14 @@ package main
 import "github.com/vferko/golang-brno/db"
 
 type Todo struct {
-	Id          int
-	Description string
-	IsDone      bool
+	Id          int    `json:"id"`
+	Description string `json:"description"`
+	IsDone      bool   `json:"is_done"`
 }
 
 func GetAll() []Todo {
 	db := db.GetDB()
-	rows, err := db.Query("SELECT * FROM")
+	rows, err := db.Query("SELECT * FROM todo2")
 	if err != nil {
 		panic(err)
 	}
@@ -35,7 +35,7 @@ func GetTodo() Todo {
 
 func SaveTodo(todo Todo) {
 	db := db.GetDB()
-	_, err := db.Exec("INSERT INTO todo(description, is_done) VALUES($1,$2)")
+	_, err := db.Exec("INSERT INTO todo2(description, is_done) VALUES($1,$2)", todo.Description, todo.IsDone)
 	if err != nil {
 		panic(err)
 	}

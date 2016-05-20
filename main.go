@@ -45,7 +45,7 @@ func todoHandler(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 		SaveTodo(todo)
-		w.Write([]byte("POST"))
+		w.WriteHeader(http.StatusOK)
 
 	case "PUT":
 		w.Write([]byte("PUT"))
